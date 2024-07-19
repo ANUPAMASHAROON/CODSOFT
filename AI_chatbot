@@ -1,0 +1,53 @@
+CHATBOT WITH RULE-BASED
+ RESPONSES
+ Build a simple chatbot that responds to user inputs based on
+ predefined rules. Use if-else statements or pattern matching
+ techniques to identify user queries and provide appropriate
+ responses. This will give you a basic understanding of natural
+ language processing and conversation flow.
+
+
+import re
+import datetime
+def chinni_chatbot_response(user_input):
+    greetings = r"(hi|hello|hey|good (morning|afternoon|evening))"
+    how_are_you = r"(how are you|how are you doing)"
+    age_question = r"(How old are you|what is your age)"
+    joke_request = r"tell me a joke"
+    joke_request1 = r"tell me another joke"
+    goodbye = r"(BYE|Bye|bye|goodbye|see you later)"
+    name = r"(Guess my name)"
+    time = r"(What's the date and time|Time and date please)"
+    current_time = datetime.datetime.now()
+    if re.search(greetings, user_input, re.IGNORECASE):
+        return "Hello Human! How can I assist you today?"
+    elif re.search(how_are_you, user_input, re.IGNORECASE):
+        return "I'm just a bot, but thanks for asking!"
+    elif re.search(age_question, user_input, re.IGNORECASE):
+        return "I'm just a program, so I don't have an age!"
+    elif re.search(joke_request1, user_input, re.IGNORECASE):
+        return "Why don't scientists trust atoms? Because they make up everything!"
+    elif re.search(joke_request, user_input, re.IGNORECASE):
+        return "Why don't some couples go to the gym? Because some relationships don't work out!"
+    elif re.search(name, user_input, re.IGNORECASE):
+        return "I don't know your name, but can i call you BEAUTIFUL!!"
+    elif re.search(goodbye, user_input, re.IGNORECASE):
+        return "Goodbye! Have a great day!"
+    elif re.search(time, user_input, re.IGNORECASE):
+        print("The date&time is:",current_time)
+    else:
+        return "I'm sorry, I didn't understand that."
+def main():
+    print("Welcome, I am Chinni the chatbot!")
+    print("You can start chatting. Type 'BYE/bye/Bye' to exit.")
+
+    while True:
+        user_input = input("You: ")
+        if user_input.lower() == 'bye':
+            print(chinni_chatbot_response(user_input))
+            break
+        else:
+            print("ChinniBot:", chinni_chatbot_response(user_input))
+
+if __name__ == "__main__":
+    main()
